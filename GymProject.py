@@ -101,7 +101,7 @@ def twoDayF(row,col,worksheet,FBF,FBA,n):
             col+=1
             workOutGoals(row,col,worksheet)
             row+=1   
-    return(row+1,n)
+    return(row+1,n+1)
     
 def twoDayA(row,col,worksheet,FBF,FBA,n):
     col=0
@@ -152,7 +152,7 @@ def twoDayA(row,col,worksheet,FBF,FBA,n):
             col+=1
             workOutGoals(row,col,worksheet)
             row+=1  
-    return(row+1,n)
+    return(row+1,n+1)
             
 def twoDayB(row,col,worksheet,FBF,FBA,n):
     col=0
@@ -204,7 +204,7 @@ def twoDayB(row,col,worksheet,FBF,FBA,n):
             col+=1
             workOutGoals(row,col,worksheet)
             row+=1  
-    return(row+1,n)
+    return(row+1,n+1)
 
 def threeDayF(row,col,worksheet,FBF,FBA,FBL,n):
     col=0
@@ -280,7 +280,7 @@ def threeDayF(row,col,worksheet,FBF,FBA,FBL,n):
             col+=1
             workOutGoals(row,col,worksheet)
             row+=1
-    return(row+1,n)
+    return(row+1,n+1)
         
 def threeDaysA(row,col,worksheet,FBF,FBA,FBL,n):
     col=0
@@ -356,7 +356,7 @@ def threeDaysA(row,col,worksheet,FBF,FBA,FBL,n):
             col+=1
             workOutGoals(row,col,worksheet)
             row+=1
-    return(row+1,n)
+    return(row+1,n+1)
             
 def threeDaysB(row,col,worksheet,FBF,FBA,FBL,n):
     col=0
@@ -432,7 +432,7 @@ def threeDaysB(row,col,worksheet,FBF,FBA,FBL,n):
             col+=1
             workOutGoals(row,col,worksheet)
             row+=1            
-    return(row+1,n)
+    return(row+1,n+1)
     
 def pageOne():
     #What to forget from page 2
@@ -495,6 +495,16 @@ def createWP():
     n=1
     #=========================ONE DAY A WEEK===============================#
     if (temphmdlDef == "1" and tempaoulDef == "Free Weight Focused"):
+        col=0
+        worksheet.write(row, col, "DAY " + str(n))
+        row+=1    
+        #prints the titls Exercises, sets, reps
+        worksheet.write(row,col, "Exercises")
+        col+=1
+        worksheet.write(row,col, "Sets")
+        col+=1
+        worksheet.write(row,col,"Reps")
+        row+=1
         indices = [ int(x) for x in muscleGroupList.curselection() ]
         for fullBodyFree in conn.execute("SELECT FullBody.fullBodyFree FROM FullBody"):
             FBF.append(fullBodyFree)
@@ -510,6 +520,16 @@ def createWP():
             row+=1
             
     elif (temphmdlDef == "1" and tempaoulDef == "Smith Machine Focused"):
+        col=0
+        worksheet.write(row, col, "DAY " + str(n))
+        row+=1    
+        #prints the titls Exercises, sets, reps
+        worksheet.write(row,col, "Exercises")
+        col+=1
+        worksheet.write(row,col, "Sets")
+        col+=1
+        worksheet.write(row,col,"Reps")
+        row+=1
         indices = [ int(x) for x in muscleGroupList.curselection() ]
         for fullBodyAssisted in conn.execute("SELECT FullBody.fullBodyAssisted FROM FullBody"):
             FBA.append(fullBodyAssisted)
@@ -525,6 +545,16 @@ def createWP():
             row+=1   
             
     elif (temphmdlDef == "1" and tempaoulDef == "Both"):
+        col=0
+        worksheet.write(row, col, "DAY " + str(n))
+        row+=1    
+        #prints the titls Exercises, sets, reps
+        worksheet.write(row,col, "Exercises")
+        col+=1
+        worksheet.write(row,col, "Sets")
+        col+=1
+        worksheet.write(row,col,"Reps")
+        row+=1
         indices = [ int(x) for x in muscleGroupList.curselection() ]
         for fullBodyAssisted in conn.execute("SELECT FullBody.fullBodyAssisted FROM FullBody"):
             FBA.append(fullBodyAssisted)
