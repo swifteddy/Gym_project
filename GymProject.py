@@ -101,7 +101,8 @@ def twoDayF(row,col,worksheet,FBF,FBA,n):
             col+=1
             workOutGoals(row,col,worksheet)
             row+=1   
-
+    return(row+1,n)
+    
 def twoDayA(row,col,worksheet,FBF,FBA,n):
     col=0
     worksheet.write(row, col, "DAY " + str(n))
@@ -151,6 +152,7 @@ def twoDayA(row,col,worksheet,FBF,FBA,n):
             col+=1
             workOutGoals(row,col,worksheet)
             row+=1  
+    return(row+1,n)
             
 def twoDayB(row,col,worksheet,FBF,FBA,n):
     col=0
@@ -202,7 +204,8 @@ def twoDayB(row,col,worksheet,FBF,FBA,n):
             col+=1
             workOutGoals(row,col,worksheet)
             row+=1  
-    
+    return(row+1,n)
+
 def threeDayF(row,col,worksheet,FBF,FBA,FBL,n):
     col=0
     worksheet.write(row, col, "DAY " + str(n))
@@ -277,6 +280,7 @@ def threeDayF(row,col,worksheet,FBF,FBA,FBL,n):
             col+=1
             workOutGoals(row,col,worksheet)
             row+=1
+    return(row+1,n)
         
 def threeDaysA(row,col,worksheet,FBF,FBA,FBL,n):
     col=0
@@ -352,6 +356,7 @@ def threeDaysA(row,col,worksheet,FBF,FBA,FBL,n):
             col+=1
             workOutGoals(row,col,worksheet)
             row+=1
+    return(row+1,n)
             
 def threeDaysB(row,col,worksheet,FBF,FBA,FBL,n):
     col=0
@@ -427,7 +432,8 @@ def threeDaysB(row,col,worksheet,FBF,FBA,FBL,n):
             col+=1
             workOutGoals(row,col,worksheet)
             row+=1            
-
+    return(row+1,n)
+    
 def pageOne():
     #What to forget from page 2
     mgLabel.grid_forget()
@@ -549,81 +555,63 @@ def createWP():
             
     #=========================TWO DAYS A WEEK==============================#
     elif (temphmdlDef == "2" and tempaoulDef == "Free Weight Focused"):
-        twoDayF(row,col,worksheet,FBF,FBA,n)
+        row,n=twoDayF(row,col,worksheet,FBF,FBA,n)
 
     elif (temphmdlDef == "2" and tempaoulDef == "Smith Machine Focused"):
-       twoDayA(row, col, worksheet, FBF, FBA,n)
+        row,n=twoDayA(row, col, worksheet, FBF, FBA,n)
     
     elif (temphmdlDef == "2" and tempaoulDef == "Both"):
-        twoDayB(row, col, worksheet, FBF, FBA,n)  
+        row,n=twoDayB(row, col, worksheet, FBF, FBA,n)  
     
                           
     #=========================THREE DAYS A WEEK==============================#
     elif (temphmdlDef == "3" and tempaoulDef == "Free Weight Focused"):
-        threeDayF(row,col,worksheet,FBF,FBA,FBL,n)
+        row,n=threeDayF(row,col,worksheet,FBF,FBA,FBL,n)
     
     elif (temphmdlDef == "3" and tempaoulDef == "Smith Machine Focused"):
-        threeDaysA(row,col,worksheet,FBF,FBA,FBL,n)      
+        row,n=threeDaysA(row,col,worksheet,FBF,FBA,FBL,n)      
 
     elif (temphmdlDef == "3" and tempaoulDef == "Both"):
-        threeDaysB(row, col, worksheet, FBF, FBA, FBL, n)   
+        row,n=threeDaysB(row, col, worksheet, FBF, FBA, FBL, n)   
               
     #=========================FOUR DAYS A WEEK==============================#    
     elif (temphmdlDef == "4" and tempaoulDef == "Free Weight Focused"):
-        twoDayF(row,col,worksheet,FBF,FBA,n)
-        n=3
-        row=23
-        twoDayF(row,col,worksheet,FBF,FBA,n)
+        row,n=twoDayF(row,col,worksheet,FBF,FBA,n)
+        row,n=twoDayF(row,col,worksheet,FBF,FBA,n)
         
     elif (temphmdlDef == "4" and tempaoulDef == "Smith Machine Focused"): 
-        twoDayA(row,col,worksheet,FBF,FBA,n)
-        n=3
-        row=23
-        twoDayA(row,col,worksheet,FBF,FBA,n)
+        row,n=twoDayA(row,col,worksheet,FBF,FBA,n)
+        row,n=twoDayA(row,col,worksheet,FBF,FBA,n)
         
     elif (temphmdlDef == "4" and tempaoulDef == "Both"):  
-        twoDayF(row,col,worksheet,FBF,FBA,n)
-        n=3
-        row=23
-        twoDayA(row,col,worksheet,FBF,FBA,n)
+        row,n=twoDayF(row,col,worksheet,FBF,FBA,n)
+        row,n=twoDayA(row,col,worksheet,FBF,FBA,n)
         
     #====================FIVE DAYS A WEEK==================================#
     elif (temphmdlDef == "5" and tempaoulDef == "Free Weight Focused"):
-        twoDayF(row,col,worksheet,FBF,FBA,n)
-        n=3
-        row=23
-        threeDayF(row,col,worksheet,FBF,FBA,FBL,n)
+        row,n=twoDayF(row,col,worksheet,FBF,FBA,n)
+        row,n=threeDayF(row,col,worksheet,FBF,FBA,FBL,n)
     
     elif (temphmdlDef == "5" and tempaoulDef == "Smith Machine Focused"):
-        twoDayA(row,col,worksheet,FBF,FBA,n)
-        n=3
-        row=23
-        threeDaysA(row,col,worksheet,FBF,FBA,FBL,n)
+        row,n=twoDayA(row,col,worksheet,FBF,FBA,n)
+        row,n=threeDaysA(row,col,worksheet,FBF,FBA,FBL,n)
     
     elif (temphmdlDef == "5" and tempaoulDef == "Both"):
-        twoDayA(row,col,worksheet,FBF,FBA,n)
-        n=3
-        row=23
-        threeDayF(row,col,worksheet,FBF,FBA,FBL,n)
+        row,n=twoDayA(row,col,worksheet,FBF,FBA,n)
+        row,n=threeDayF(row,col,worksheet,FBF,FBA,FBL,n)
     
    #=======================SIX DAYS A WEEK==================================#
     elif (temphmdlDef == "6" and tempaoulDef == "Free Weight Focused"):
-        threeDayF(row,col,worksheet,FBF,FBA,FBL,n)
-        n=4
-        row=23
-        threeDayF(row,col,worksheet,FBF,FBA,FBL,n)
+        row,n=threeDayF(row,col,worksheet,FBF,FBA,FBL,n)
+        row,n=threeDayF(row,col,worksheet,FBF,FBA,FBL,n)
     
     elif (temphmdlDef == "6" and tempaoulDef == "Smith Machine Focused"):
-        threeDaysA(row,col,worksheet,FBF,FBA,FBL,n)
-        n=4
-        row=23
-        threeDaysA(row,col,worksheet,FBF,FBA,FBL,n)
+        row,n=threeDaysA(row,col,worksheet,FBF,FBA,FBL,n)
+        row,n=threeDaysA(row,col,worksheet,FBF,FBA,FBL,n)
     
     elif (temphmdlDef == "6" and tempaoulDef == "Both"):
-        threeDaysA(row,col,worksheet,FBF,FBA,FBL,n)
-        n=4
-        row=23
-        threeDayF(row,col,worksheet,FBF,FBA,FBL,n)
+        row,n=threeDaysA(row,col,worksheet,FBF,FBA,FBL,n)
+        row,n=threeDayF(row,col,worksheet,FBF,FBA,FBL,n)
    
     worksheet.set_column('A:A', 30)
     worksheet.set_column('B:C', 10)
