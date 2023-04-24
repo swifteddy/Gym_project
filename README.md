@@ -4,9 +4,9 @@ Workout Plan Creator is a Python application that helps fitness enthusiasts crea
 The application uses a SQLite database of exercises to generate a workout plan consisting of various exercises for different muscle groups, along with recommended sets and reps for each exercise. The user can choose between different workout styles, such as free weights, machine-based workouts, or a combination of both. They can also select the number of days per week they want to work out and the level of difficulty.
 
 ## Requirements
-Python 3.6 or higher
-SQLite 3
-XlsxWriter
+* Python 3.6 or higher
+* SQLite 3
+* XlsxWriter
 
 ## Installation
 Clone this repository or download the ZIP file and extract it to a local folder.
